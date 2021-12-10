@@ -26,6 +26,12 @@ contract OctopusFactory is FactoryERC721, Ownable {
   uint256 public SUPPLY = 1e4;
 
   /*
+   * Airdrop supply
+   */
+  uint256 public AIRDROP_SUPPLY = 50;
+  bool public AIRDROP_DONE = false;
+
+  /*
    * Number of options for minting Octopus Squad tokens.
    */
   uint256 public NUM_OPTIONS = 10;
@@ -89,7 +95,15 @@ contract OctopusFactory is FactoryERC721, Ownable {
 
     OctopusSquad octopus = OctopusSquad(nftAddress);
     uint256 totalSupply = octopus.totalSupply();
-    return totalSupply < (SUPPLY - (optionId_ + 1));
+    uint256 mintAmount = optionId_ + 1;
+    if (!AIRDROP_DONE) {
+      mintAmount += AIRDROP_SUPPLY;
+    }
+    return totalSupply < (SUPPLY - mintAmount);
+  }
+
+  function setAirdropsDone() public onlyOwner {
+    AIRDROP_DONE = true;
   }
 
   function tokenURI(uint256 optionId_) override external view returns (string memory) {
