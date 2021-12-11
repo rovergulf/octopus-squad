@@ -1,3 +1,16 @@
 <main>
-    <h1>To be done</h1>
+    <h2>FAQ</h2>
+    <ul>
+        <li class="faq-block" *ngFor="let item of faq" id="{{item.id}}" [class.active]="item.active">
+            <div class="question flex-row layout-space-between-center" (click)="toggle(item.id)">
+                <div>
+                    <p>{{item.question}}</p>
+                </div>
+                <div>
+                    <img class="open-icon" src="../../../assets/images/cross.svg" alt="Open icon">
+                </div>
+            </div>
+            <div class="answer">{{item.answer}}</div>
+        </li>
+    </ul>
 </main>
