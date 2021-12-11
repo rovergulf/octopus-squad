@@ -12,19 +12,19 @@ import { MinterComponent } from './minter/minter.component';
 
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    TeamComponent,
-    FaqComponent,
-    StoryComponent,
-    AboutComponent,
-    RoadmapComponent,
-    MinterComponent
-  ],
-  imports: [
-    CommonModule,
-    HomeRoutingModule
-  ]
+    declarations: [
+        HomeComponent,
+        TeamComponent,
+        FaqComponent,
+        StoryComponent,
+        AboutComponent,
+        RoadmapComponent,
+        MinterComponent
+    ],
+    imports: [
+        CommonModule,
+        HomeRoutingModule
+    ]
 })
 export class HomeModule {
 }
