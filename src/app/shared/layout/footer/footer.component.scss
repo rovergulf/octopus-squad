@@ -1,0 +1,36 @@
+@import "../../../../variables";
+
+footer {
+    height: 64px;
+    width: 100%;
+    max-width: 1280px;
+    @extend .flex-row;
+    @extend .layout-space-between-center;
+
+    .logo {
+        @extend .flex-row;
+        @extend .layout-center-center;
+
+        color: #fff;
+
+        img {
+            width: 50px;
+            height: 50px;
+            margin-right: 16px;
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 50px;
+        }
+    }
+
+    .community {
+        @extend .flex-row;
+        @extend .layout-center-center;
+
+        a:not(:last-child) {
+            margin-right: 16px;
+        }
+    }
+}

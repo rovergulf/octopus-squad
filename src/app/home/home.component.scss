@@ -2,9 +2,19 @@
 
 main {
     @extend .flex-column;
-    @extend .layout-start-stretch;
+    @extend .layout-start-center;
+    padding: 0 0 64px 0;
 }
 
 app-minter, app-story, app-roadmap, app-about, app-faq {
     margin-bottom: 64px;
+}
+
+app-minter {
+    width: 100%;
+}
+
+app-story, app-roadmap, app-about, app-faq {
+    width: 100%;
+    max-width: 1280px;
 }
