@@ -74,3 +74,9 @@ html, body {
 span.spacer {
     padding: 16px;
 }
+
+.disabled {
+    opacity: .5;
+    pointer-events: none;
+    cursor: default;
+}

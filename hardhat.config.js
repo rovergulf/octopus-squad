@@ -5,7 +5,19 @@ require('dotenv').config();
 require('@nomiclabs/hardhat-ethers');
 require("@nomiclabs/hardhat-etherscan");
 
-const {PRIVATE_KEY, ETHERSCAN_API_KEY, RINKEBY_API_URL, MAINNET_API_URL, POLYGON_API_URL, MUMBAI_API_URL} = process.env;
+const {
+    CURRENT_NETWORK,
+    PRIVATE_KEY,
+    ETHERSCAN_API_KEY,
+    POLYGONSCAN_API_KEY,
+    RINKEBY_API_URL,
+    MAINNET_API_URL,
+    POLYGON_API_URL,
+    MUMBAI_API_URL
+} = process.env;
+
+const etherscanApiKey = CURRENT_NETWORK === 'polygon' || CURRENT_NETWORK === 'mumbai' ?
+    POLYGONSCAN_API_KEY : ETHERSCAN_API_KEY;
 
 module.exports = {
     solidity: {
@@ -43,7 +55,7 @@ module.exports = {
         }
     },
     etherscan: {
-        apiKey: ETHERSCAN_API_KEY
+        apiKey: etherscanApiKey
     },
     paths: {
         sources: "./contracts",
