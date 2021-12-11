@@ -1,5 +1,11 @@
 @import "../../../variables";
 
+main {
+    h2 {
+        text-align: center;
+    }
+}
+
 .step {
     width: 1198px;
     background: #73D1F5;
@@ -25,40 +31,39 @@
         background-color: #FFF772;
         top: -50px;
         left: -82px;
-        font-size: 72px;
-        line-height: 83%;
-        letter-spacing: 0.03em;
-        color: rgba(31, 50, 69, 0.85);
-        //font-family: 'Qinzy - Personal Use', sans-serif;
+        background-position: center center;
+        background-repeat: no-repeat;
     }
 
-    &:nth-of-type(1){
+    &:nth-of-type(1) {
         &:before {
-            content: '10%';
+            background-image: url('../../../assets/images/10.svg');
+
         }
     }
 
-    &:nth-of-type(2){
+    &:nth-of-type(2) {
         &:before {
-            content: '25%';
+            background-image: url('../../../assets/images/25.svg');
         }
     }
 
-    &:nth-of-type(3){
+    &:nth-of-type(3) {
         &:before {
-            content: '50%';
+            background-image: url('../../../assets/images/50.svg');
         }
     }
 
-    &:nth-of-type(4){
+    &:nth-of-type(4) {
         &:before {
-            content: '75%';
+            background-image: url('../../../assets/images/75.svg');
         }
     }
 
-    &:nth-of-type(5){
+    &:nth-of-type(5) {
+        margin-bottom: 0;
         &:before {
-            content: '100%';
+            background-image: url('../../../assets/images/100.svg');
         }
     }
 }
