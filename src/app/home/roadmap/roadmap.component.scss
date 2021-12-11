@@ -1,0 +1,64 @@
+@import "../../../variables";
+
+.step {
+    width: 1198px;
+    background: #73D1F5;
+    border-radius: 71px;
+    padding: 60px 116px;
+    margin-bottom: 80px;
+    position: relative;
+
+    ul {
+        list-style-type: disc;
+        list-style-position: inside;
+    }
+
+    &:before {
+        content: '';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        width: 164px;
+        height: 164px;
+        border-radius: 100%;
+        background-color: #FFF772;
+        top: -50px;
+        left: -82px;
+        font-size: 72px;
+        line-height: 83%;
+        letter-spacing: 0.03em;
+        color: rgba(31, 50, 69, 0.85);
+        //font-family: 'Qinzy - Personal Use', sans-serif;
+    }
+
+    &:nth-of-type(1){
+        &:before {
+            content: '10%';
+        }
+    }
+
+    &:nth-of-type(2){
+        &:before {
+            content: '25%';
+        }
+    }
+
+    &:nth-of-type(3){
+        &:before {
+            content: '50%';
+        }
+    }
+
+    &:nth-of-type(4){
+        &:before {
+            content: '75%';
+        }
+    }
+
+    &:nth-of-type(5){
+        &:before {
+            content: '100%';
+        }
+    }
+}

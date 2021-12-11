@@ -7,6 +7,23 @@
     }
 }
 
+main {
+    h2 {
+        font-family: 'Qinzy - Personal Use', sans-serif;
+        font-size: 80px;
+        font-weight: normal;
+        line-height: 120%;
+        color: #fff;
+        margin-bottom: 40px;
+    }
+
+    p, li {
+        font-size: 32px;
+        line-height: 48px;
+        color: #fff;
+    }
+}
+
 .flex-row, .flex-column {
     -webkit-box-direction: normal;
 }
