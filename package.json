@@ -7,7 +7,11 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "dev:ssr": "ng run octopus-squad:serve-ssr",
+    "serve:ssr": "node dist/octopus-squad/server/main.js",
+    "build:ssr": "ng build && ng run octopus-squad:server",
+    "prerender": "ng run octopus-squad:prerender"
   },
   "private": true,
   "dependencies": {
@@ -18,8 +22,11 @@
     "@angular/forms": "~13.0.0",
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
+    "@angular/platform-server": "~13.0.0",
     "@angular/router": "~13.0.0",
     "@angular/service-worker": "~13.0.0",
+    "@nguniversal/express-engine": "^13.0.1",
+    "express": "^4.15.2",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -33,9 +40,11 @@
     "@angular-eslint/template-parser": "13.0.1",
     "@angular/cli": "~13.0.4",
     "@angular/compiler-cli": "~13.0.0",
+    "@nguniversal/builders": "^13.0.1",
     "@nomiclabs/hardhat-ethers": "^2.0.3",
     "@nomiclabs/hardhat-etherscan": "^2.1.8",
     "@openzeppelin/contracts": "^4.4.0",
+    "@types/express": "^4.17.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.3.0",
@@ -50,6 +59,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "prom-client": "^14.0.1",
     "typescript": "~4.4.3"
   }
 }
