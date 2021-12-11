@@ -1,0 +1,10 @@
+@import "../../variables";
+
+main {
+    @extend .flex-column;
+    @extend .layout-start-stretch;
+}
+
+app-minter, app-story, app-roadmap, app-about, app-faq {
+    margin-bottom: 64px;
+}

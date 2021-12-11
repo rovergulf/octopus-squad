@@ -1,0 +1,39 @@
+@import "../../../variables";
+
+main {
+    @extend .flex-column;
+    @extend .layout-start-stretch;
+
+    .overlay {
+        @extend .flex-column;
+        @extend .layout-start-start;
+        padding: 64px 88px 0 88px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        color: #fff;
+
+        h1 {
+            font-family: 'Qinzy - Personal Use', sans-serif;
+            font-weight: normal;
+            font-size: 124px;
+            line-height: 160px;
+        }
+
+        p {
+            font-size: 32px;
+            line-height: 48px;
+        }
+    }
+
+    .mint {
+        width: 344px;
+        height: 80px;
+        background: #FFF772;
+        border-radius: 24px;
+        font-size: 32px;
+        line-height: 80px;
+        color: #1F3245;
+    }
+}
