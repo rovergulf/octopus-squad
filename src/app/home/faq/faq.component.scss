@@ -1,0 +1,44 @@
+@import "../../../variables";
+
+main {
+    h2 {
+        text-align: center;
+    }
+
+    .faq-block:not(.faq-block:last-of-type) {
+        margin-bottom: 32px;
+    }
+
+    .faq-block {
+        .answer {
+            opacity: 0.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s;
+        }
+
+        &.active {
+            .open-icon {
+                transform: rotate(45deg);
+            }
+
+            .answer {
+                max-height: 300px;
+            }
+        }
+    }
+
+    .question {
+        margin-bottom: 4px;
+        cursor: pointer;
+
+        p {
+            font-size: 40px;
+            line-height: 58px;
+        }
+
+        .open-icon {
+            transition: all 0.4s;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@import "../../../variables";
+
+.image {
+    min-width: 400px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 32px;
+
+    img {
+        height: 100%;
+    }
+}
+
+.spacer {
+    padding: 24px;
+}

@@ -1,3 +1,10 @@
 <main>
-    <h1>To be done</h1>
+    <h2>Team</h2>
+    <div class="flex-row layout-space-between-center">
+        <div class="member" *ngFor="let member of team">
+            <img src="{{member.avatar}}" alt="{{member.alt}}">
+            <div class="member-name">{{member.name}}</div>
+            <div class="member-position">{{member.position}}</div>
+        </div>
+    </div>
 </main>
