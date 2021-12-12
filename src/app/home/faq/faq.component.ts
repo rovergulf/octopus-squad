@@ -11,19 +11,19 @@ export class FaqComponent {
         {
             id: 1,
             question: 'What is the Octopus Squad?',
-            answer: `This is a collection of 10,000 unique NFT Octopus Squads on a Polygon Blockchain.  Each of them is thought out, specially selected and has its own value.`,
+            answer: `This is a collection of 10,000 unique NFT Octopus Squads on a Polygon Blockchain. Each of them is thought out, specially selected and has its own value.`,
             active: false
         },
         {
             id: 2,
             question: 'How was the Octopus Squad created?',
-            answer: `Each Octopus has constructed algorithmically by mixing a variety of properties with different possibilities.`,
+            answer: `Each Octopus has constructed algorithmically by mixing a variety of properties with different possibilities.`,
             active: false
         },
         {
             id: 3,
             question: 'What is the smart contract address of the Octopus Squad?',
-            answer: `a1b2c3d4g5h6j7k8`,
+            answer: `0x0000000000000000000000000000000000000000`,
             active: false
         },
         {
@@ -53,8 +53,8 @@ export class FaqComponent {
         {
             id: 8,
             question: 'What does possession of an octopus give?',
-            answer: `Ownership of NFT OS gives the right to vote to choose where funds from the treasury will be directed.
-            OS members will have access to a private  Discord channel where they can post offers to channel funds.
+            answer: `Ownership of NFT OS gives the right to vote to choose where funds from the treasury will be directed.
+            OS members will have access to a private Discord channel where they can post offers to channel funds.
             The team will vote for the best proposals and then implement it!
             + airdrops for NFT owners.`,
             active: false
@@ -62,7 +62,7 @@ export class FaqComponent {
         {
             id: 9,
             question: 'Fundraising directions',
-            answer: `Projects for the cleaning of reservoirs, rescue of marine life, financing  of animal rehabilitation centers`,
+            answer: `Projects for the cleaning of reservoirs, rescue of marine life, financing of animal rehabilitation centers`,
             active: false
         },
         {
@@ -74,7 +74,7 @@ export class FaqComponent {
         {
             id: 11,
             question: 'How will the funds be transferred to funds?',
-            answer: `Through The Giving Block, we will arrange for donations to be transferred  to community-selected foundations.`,
+            answer: `Through The Giving Block, we will arrange for donations to be transferred to community-selected foundations.`,
             active: false
         }
     ];
