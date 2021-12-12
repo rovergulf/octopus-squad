@@ -1,5 +1,10 @@
 @import "../../../variables";
 
+.story-block {
+    display: flex;
+    flex-direction: row;
+}
+
 .image {
     min-width: 400px;
     height: 400px;
@@ -13,4 +18,48 @@
 
 .spacer {
     padding: 24px;
+}
+
+@media screen and (max-width: 1440px) {
+    main {
+        padding: 0 32px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        .story-block {
+            flex-direction: column;
+        }
+
+        .image {
+            width: 400px;
+            align-self: center;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        .story-block p {
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+}
+
+@media screen and (max-width: 440px) {
+    main {
+        padding: 0 16px;
+
+        .image {
+            min-width: 300px;
+            width: 300px;
+            height: 300px;
+        }
+
+        h2 {
+            font-size: 60px;
+        }
+    }
 }

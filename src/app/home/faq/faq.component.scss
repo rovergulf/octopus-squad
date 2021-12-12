@@ -17,13 +17,19 @@ main {
             transition: max-height 0.4s;
         }
 
+        .icon-wrapper {
+            margin-left: 16px;
+            display: flex;
+            padding: 8px 0;
+        }
+
         &.active {
             .open-icon {
                 transform: rotate(45deg);
             }
 
             .answer {
-                max-height: 300px;
+                max-height: 400px;
             }
         }
     }
@@ -39,6 +45,58 @@ main {
 
         .open-icon {
             transition: all 0.4s;
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    main {
+        padding: 0 32px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        .question {
+            p {
+                font-size: 32px;
+                line-height: 48px;
+            }
+        }
+
+        .answer {
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+}
+
+@media screen and (max-width: 440px) {
+    main {
+        padding: 0 16px;
+
+        .faq-block {
+            margin-bottom: 16px;
+
+            .icon-wrapper {
+                padding: 0;
+            }
+        }
+
+        .question {
+            p {
+                font-size: 24px;
+                line-height: 32px;
+            }
+        }
+
+        .answer {
+            font-size: 18px;
+            line-height: 26px;
+        }
+
+        h2 {
+            font-size: 60px;
         }
     }
 }

@@ -22,3 +22,9 @@ app-story, app-roadmap, app-about, app-faq, app-team {
 .divider {
     padding: 48px;
 }
+
+@media screen and (max-width: 640px) {
+    .divider {
+        padding: 24px;
+    }
+}

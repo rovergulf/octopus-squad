@@ -4,5 +4,30 @@ main {
     h2, p {
         text-align: center;
     }
-
 }
+
+@media screen and (max-width: 1440px) {
+    main {
+        padding: 0 32px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    main {
+        p {
+            font-size: 24px;
+            line-height: 32px;
+        }
+    }
+}
+
+@media screen and (max-width: 440px) {
+    main {
+        padding: 0 16px;
+
+        h2 {
+            font-size: 60px;
+        }
+    }
+}
+
