@@ -7,12 +7,13 @@ main {
 }
 
 .step {
-    width: 1198px;
+    width: calc(100% - 82px);
     background: #73D1F5;
     border-radius: 71px;
     padding: 60px 116px;
     margin-bottom: 80px;
     position: relative;
+    align-self: end;
 
     ul {
         list-style-type: disc;
@@ -64,6 +65,86 @@ main {
         margin-bottom: 0;
         &:before {
             background-image: url('../../../assets/images/100.svg');
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    main {
+        padding: 0 32px;
+    }
+    .step {
+        width: calc(100% - 60px);
+
+        &:before {
+            width: 120px;
+            height: 120px;
+            top: -30px;
+            left: -60px;
+            background-size: 70%;
+        }
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .step {
+        border-radius: 34px;
+        padding: 24px 48px;
+        width: calc(100% - 60px);
+
+        li {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        &:before {
+            width: 90px;
+            height: 90px;
+        }
+
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .step {
+        border-radius: 16px;
+        padding: 16px 32px;
+        width: calc(100% - 30px);
+
+        li {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        &:before {
+            width: 60px;
+            height: 60px;
+            top: -20px;
+            left: -30px;
+        }
+
+        li::marker {
+            margin-right: 4px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 440px) {
+    main {
+        padding: 0 16px;
+
+        .step {
+            padding: 16px;
+            border-radius: 8px;
+
+            &:before {
+                top: -37px;
+            }
+        }
+
+        h2 {
+            font-size: 60px;
         }
     }
 }
