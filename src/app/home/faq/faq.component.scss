@@ -14,7 +14,7 @@ main {
             opacity: 0.7;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s;
+            transition: max-height 0.6s;
         }
 
         .icon-wrapper {
@@ -25,7 +25,7 @@ main {
 
         &.active {
             .open-icon {
-                transform: rotate(45deg);
+                transform: rotate(405deg);
             }
 
             .answer {
@@ -44,7 +44,7 @@ main {
         }
 
         .open-icon {
-            transition: all 0.4s;
+            transition: all 0.6s;
         }
     }
 }

@@ -1,10 +1,55 @@
 @import "../../../../variables";
 
 header {
-    height: 64px;
-    padding: 0 32px;
-    background: transparent;
-    width: 100%;
+    .content {
+        height: 66px;
+        padding: 0 32px;
+        background: transparent;
+        width: 100%;
+    }
+
+    .mobile-menu {
+        display: none;
+    }
+
+    button.burger {
+        background: transparent;
+    }
+
+    .menu {
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        @extend .layout-space-between-start;
+        z-index: 99;
+        top: 64px;
+        left: 0;
+        right: 0;
+        height: calc(100vh - 64px);
+        background: #fff;
+
+        &.active {
+            display: flex;
+            flex-direction: column;
+            @extend .layout-start-stretch;
+        }
+
+        .nav {
+            flex-direction: column;
+            a:nth-child(3) {
+                display: none;
+            }
+
+            li {
+                width: 100%;
+                text-align: center;
+                padding: 24px 0;
+                color: #213245;
+                margin: 0;
+                border-bottom: 1px solid #213245;
+            }
+        }
+    }
 }
 
 ul {
@@ -20,6 +65,23 @@ ul {
         a {
             font-size: 24px;
             line-height: 32px;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    header {
+        .content {
+            //background: #213245;
+
+            .nav {
+                display: none;
+            }
+        }
+
+
+        .mobile-menu {
+            display: flex;
         }
     }
 }

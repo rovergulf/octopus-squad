@@ -28,3 +28,9 @@ app-story, app-roadmap, app-about, app-faq, app-team {
         padding: 24px;
     }
 }
+
+@media screen and (max-width: 800px) {
+    main {
+        padding: 64px 0;
+    }
+}

@@ -8,7 +8,6 @@ import { FaqComponent } from './faq/faq.component';
 import { StoryComponent } from './story/story.component';
 import { AboutComponent } from './about/about.component';
 import { RoadmapComponent } from './roadmap/roadmap.component';
-import { MinterComponent } from './minter/minter.component';
 
 
 @NgModule({
@@ -19,7 +18,6 @@ import { MinterComponent } from './minter/minter.component';
         StoryComponent,
         AboutComponent,
         RoadmapComponent,
-        MinterComponent
     ],
     imports: [
         CommonModule,
