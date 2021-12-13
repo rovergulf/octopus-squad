@@ -57,7 +57,7 @@ main {
 @media screen and (max-width: 800px) {
     main {
         .overlay {
-            padding: 40px 60px 0 60px;
+            padding: 0 60px;
 
             h1 {
                 font-size: 60px;
@@ -81,6 +81,11 @@ main {
 
 @media screen and (max-width: 640px) {
     main {
-
+        video {
+            height: 500px;
+            width: 1200px;
+            left: -50%;
+            position: relative;
+        }
     }
 }

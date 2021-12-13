@@ -28,8 +28,9 @@ main {
 @media screen and (max-width: 1440px) {
     main {
         padding: 0 32px;
-        .member:not(.member:last-of-type) {
-            margin-right: 24px;
+
+        .member {
+            width: 22%
         }
     }
 }

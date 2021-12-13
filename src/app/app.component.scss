@@ -1,12 +1,7 @@
 @import "../variables";
 
 #wrap {
-    @extend .flex-column;
-    @extend .layout-start-stretch;
-    min-height: 100vh;
-    background: center center repeat url('/assets/images/background.jpg');
-    background-size: cover;
-    padding-bottom: 64px;
+    background-color: #5ECFFB;
 
     app-header {
         position: absolute;
@@ -17,6 +12,15 @@
         z-index: 100;
     }
 
+    .container {
+        @extend .flex-column;
+        @extend .layout-start-stretch;
+        min-height: 100vh;
+        background: top center repeat url('/assets/images/background.jpg');
+        background-size: cover;
+        padding-bottom: 64px;
+    }
+
     app-footer {
         width: 100%;
         max-width: 1280px;
@@ -25,5 +29,13 @@
 
     router-outlet {
         z-index: 5;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #wrap {
+        app-header {
+            position: relative;
+        }
     }
 }
