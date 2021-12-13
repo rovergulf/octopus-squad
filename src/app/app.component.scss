@@ -1,8 +1,6 @@
 @import "../variables";
 
 #wrap {
-    background-color: #5ECFFB;
-
     app-header {
         position: absolute;
         top: 0;
@@ -35,7 +33,7 @@
 @media screen and (max-width: 800px) {
     #wrap {
         app-header {
-            position: relative;
+            //position: relative;
         }
     }
 }
