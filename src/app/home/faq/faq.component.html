@@ -1,8 +1,8 @@
 <main>
     <h2>FAQ</h2>
     <ul>
-        <li class="faq-block" *ngFor="let item of faq" id="{{item.id}}" [class.active]="item.active">
-            <div class="question flex-row layout-space-between-start" (click)="toggle(item.id)">
+        <li class="faq-block" *ngFor="let item of faq; let id = index" id="{{id}}" [class.active]="item.active">
+            <div class="question flex-row layout-space-between-start" (click)="toggle(id)">
                 <div>
                     <p>{{item.question}}</p>
                 </div>

@@ -14,7 +14,7 @@
         @extend .flex-column;
         @extend .layout-start-stretch;
         min-height: 100vh;
-        background: top center repeat url('/assets/images/background.jpg');
+        background: top center no-repeat url('/assets/images/background.jpg');
         background-size: cover;
         padding-bottom: 64px;
     }
