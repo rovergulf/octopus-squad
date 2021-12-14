@@ -1,5 +1,5 @@
-import { Component, ContentChild, ContentChildren, Inject, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
     selector: 'app-minter',
@@ -9,13 +9,16 @@ import { DOCUMENT } from '@angular/common';
 export class MinterComponent implements OnInit {
 
     constructor(
+        @Inject(PLATFORM_ID) private platformId: any,
         @Inject(DOCUMENT) private document: any,
     ) {
     }
 
     ngOnInit(): void {
-        const elem = this.document.getElementById('video');
-        elem.play();
+        if (isPlatformBrowser(this.platformId)) {
+            const elem = this.document.getElementById('video');
+            elem.play();
+        }
     }
 
 }
