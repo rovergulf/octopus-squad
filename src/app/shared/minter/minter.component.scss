@@ -4,6 +4,10 @@ main {
     @extend .flex-column;
     @extend .layout-start-stretch;
 
+    video {
+        width: 100%;
+    }
+
     .overlay {
         @extend .flex-column;
         @extend .layout-start-start;

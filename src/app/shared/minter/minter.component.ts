@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ContentChild, ContentChildren, Inject, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
     selector: 'app-minter',
@@ -7,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MinterComponent implements OnInit {
 
-    constructor() {
+    constructor(
+        @Inject(DOCUMENT) private document: any,
+    ) {
     }
 
     ngOnInit(): void {
+        const elem = this.document.getElementById('video');
+        elem.play();
     }
 
 }
