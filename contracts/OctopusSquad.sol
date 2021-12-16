@@ -67,13 +67,16 @@ contract OctopusSquad is ERC721, ERC721Enumerable, ERC721Burnable, Ownable {
         }
         require(totalSupply() <= (maxSupply - mintAmount), "Total supply will exceed limit");
         require(to != address(0), "Cannot be minted to zero address");
+
         uint256 price = tokenPrice;
         uint256 currentId = currentTokenId();
+        // set discount for the first sale
         if (currentId < discountTokensCount) {
             price = discountTokenPrice;
         }
+
+        // if discount limit is exceed, count tx price separately
         if (currentId + amount > discountTokensCount) {
-            // if discount limit is exceed, count tx price separately
             uint256 lowerPrice = (discountTokensCount - currentId) * discountTokenPrice;
             uint256 normalPrice = (currentId + amount - discountTokensCount) * tokenPrice;
             require((lowerPrice + normalPrice) >= msg.value, "Not enough Matic sent");
