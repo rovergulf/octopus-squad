@@ -1,5 +1,6 @@
 <main>
-    <video id="video" src="/assets/header.webm" poster="/assets/images/main_screen.jpg" [loop]="true" [autoplay]="true">
+    <video id="video" src="/assets/header.webm" poster="/assets/images/main_screen.jpg"
+           [muted]="true" [loop]="true" [autoplay]="true">
         Sorry, your browser doesn't support embedded videos.
     </video>
     <div class="overlay">
@@ -7,6 +8,6 @@
         <span class="spacer"></span>
         <p>This is a squad of 10K randomly generated<br>NFTs that reside on the Polygon blockchain.</p>
         <span class="spacer"></span>
-        <button class="mint">Mint now</button>
+        <button class="mint" (click)="mint()">Mint now</button>
     </div>
 </main>

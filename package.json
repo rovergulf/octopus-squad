@@ -1,6 +1,6 @@
 {
   "name": "octopus-squad",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -43,7 +43,7 @@
     "@nguniversal/builders": "^13.0.1",
     "@nomiclabs/hardhat-ethers": "^2.0.3",
     "@nomiclabs/hardhat-etherscan": "^2.1.8",
-    "@openzeppelin/contracts": "^4.4.0",
+    "@openzeppelin/contracts": "^4.4.1",
     "@types/express": "^4.17.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
@@ -59,6 +59,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "ngx-slice-kit": "^0.12.0",
     "prom-client": "^14.0.1",
     "typescript": "~4.4.3"
   }

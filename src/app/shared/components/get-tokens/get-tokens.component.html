@@ -1,0 +1,45 @@
+<main>
+    <header>
+        <h1>Mint Octopus</h1>
+        <span class="spacer"></span>
+        <sdk-icon icon="close" [size]="40" (click)="close()"></sdk-icon>
+    </header>
+    <section *ngIf="!contract">
+        <p>Loading contract interfaces...</p>
+    </section>
+    <section *ngIf="contract">
+        <div class="recipient">
+            <h3>Recipient:</h3>
+            <p>{{web3.currentAccount}}</p>
+        </div>
+        <span class="spacer"></span>
+        <div class="factory">
+            <div class="factory-image">
+                <img [src]="factoryImage" alt="Eggs"/>
+            </div>
+            <span class="spacer"></span>
+            <div class="params">
+                <h3>Amount:</h3>
+                <div class="amount">
+                    <img src="assets/images/arr.svg" class="dec" alt="Less"
+                         (click)="decrease()" [class.disabled]="canDecrease"/>
+                    <p>{{amount}}</p>
+                    <img src="assets/images/arr.svg" class="inc" alt="More"
+                         (click)="increase()" [class.disabled]="canIncrease"/>
+                </div>
+                <span class="spacer"></span>
+                <h3>{{web3.network === '0x4' ? 'Ether' : 'Matic'}}:</h3>
+                <sdk-input autocomplete="off" [(ngModel)]="ethValue"
+                           size="full-width" [caption]="priceCaption()"></sdk-input>
+                <span class="spacer flex-grow-1"></span>
+                <ng-container *ngIf="!tx?.hash">
+                    <button class="mint-button" [disabled]="loading" (click)="mint()">Mint</button>
+                </ng-container>
+                <ng-container *ngIf="tx?.hash">
+                    <a class="mint-button" target="_blank" [href]="txUrl">View tx</a>
+                </ng-container>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+</main>

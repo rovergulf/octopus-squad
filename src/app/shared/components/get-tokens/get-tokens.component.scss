@@ -1,0 +1,148 @@
+@import "./node_modules/ngx-slice-kit/lib/core/styles/flexbox";
+
+main {
+    min-width: 320px;
+    min-height: 80vh;
+    max-height: 90vh;
+    border-radius: 40px;
+    background: rgb(40, 57, 76);
+    @extend .flex-column;
+    @extend .layout-start-stretch;
+
+    header {
+        @extend .flex-row;
+        @extend .layout-space-between-center;
+        padding: 20px 32px;
+        background: #fff;
+        border-radius: 40px 40px 0 0;
+
+        sdk-icon {
+            cursor: pointer;
+            transition: all .3s ease;
+
+            &:hover {
+                opacity: .75;
+            }
+        }
+    }
+
+    section {
+        padding: 20px 32px;
+        color: #fff;
+        @extend .flex-column;
+        @extend .layout-start-stretch;
+
+        .recipient {
+            @extend .flex-column;
+            @extend .layout-start-stretch;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .amount {
+            @extend .flex-row;
+            @extend .layout-space-between-center;
+
+            img {
+                cursor: pointer;
+                transition: all .3s ease;
+
+                &:hover {
+                    opacity: .75;
+                }
+            }
+
+            .inc {
+                transform: rotate(180deg);
+            }
+        }
+
+        .factory {
+            @extend .flex-row;
+            @extend .layout-center-stretch;
+            @extend .flex-wrap;
+
+            & > span {
+                padding: 24px;
+            }
+
+            .params {
+                @extend .flex-column;
+                @extend .layout-start-stretch;
+                @extend .flex-grow-1;
+            }
+        }
+
+        .factory-image {
+            @extend .flex-column;
+            @extend .layout-center-center;
+
+            img {
+                max-width: 480px;
+                width: 100%;
+                border-radius: 24px;
+            }
+        }
+
+        .mint-button {
+            border-radius: 32px;
+            font-size: 40px;
+            line-height: 64px;
+            height: 64px;
+            width: 100%;
+        }
+    }
+
+    footer {
+        //padding: 20px;
+        //border-radius: 0 0 40px 40px;
+    }
+
+    h3 {
+        font-size: 40px;
+        line-height: 56px;
+    }
+
+    p {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    @media screen and (min-width: 720px) {
+        min-width: 560px;
+    }
+
+    @media screen and (max-width: 960px) {
+        border-radius: 20px;
+
+        h1 {
+            font-size: 32px;
+            line-height: 48px;
+        }
+
+        h3 {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 32px;
+        }
+
+        section {
+            .recipient p {
+                font-size: 16px;
+            }
+
+            .factory {
+                flex-direction: column;
+
+                & > span {
+                    padding: 12px;
+                }
+            }
+        }
+    }
+}

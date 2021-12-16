@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-    production: false
+    production: false,
+    cdn: 'https://storage.googleapis.com/rovergulf/nft-gen/dev',
+    contracts: {
+        '0x4': '0xE5139DD3aee424E31CD20e13f761496024Da7491',
+        '0x89': '0x0000000000000000000000000000000000000000'
+    }
 };
 
 /*

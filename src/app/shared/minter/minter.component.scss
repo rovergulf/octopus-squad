@@ -1,4 +1,4 @@
-@import "../../../variables";
+@import "./node_modules/ngx-slice-kit/lib/core/styles/flexbox";
 
 main {
     @extend .flex-column;
@@ -32,6 +32,8 @@ main {
     }
 
     .mint {
+        text-align: center;
+        cursor: pointer;
         width: 344px;
         height: 80px;
         background: #FFF772;
@@ -39,6 +41,11 @@ main {
         font-size: 32px;
         line-height: 80px;
         color: #1F3245;
+        transition: opacity .25s ease;
+
+        &:hover {
+            opacity: 0.75;
+        }
     }
 }
 
