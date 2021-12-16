@@ -32,7 +32,6 @@ export class MinterComponent implements OnInit {
             } else {
                 const isRinkeby = this.web3.network === '0x4';
                 const isPolygon = this.web3.network === '0x89';
-                console.log(this.web3.network)
                 if (isRinkeby || isPolygon) {
                     this.dialog.showDialog(GetTokensComponent).subscribe({
                         next: (res: any) => {

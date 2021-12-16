@@ -1,3 +1,4 @@
+@import "./node_modules/ngx-slice-kit/lib/core/styles/flexbox";
 @import "../../variables";
 
 main {
@@ -19,7 +20,7 @@ app-story, app-roadmap, app-about, app-faq, app-team {
     max-width: 1280px;
 }
 
-.divider {
+span.divider {
     padding: 48px;
 }
 
