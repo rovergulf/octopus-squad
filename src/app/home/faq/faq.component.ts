@@ -20,7 +20,7 @@ export class FaqComponent {
         },
         {
             question: 'What is the smart contract address of the Octopus Squad?',
-            answer: `0x0000000000000000000000000000000000000000`,
+            answer: `0xE088f6d45e537B9B4F17f8096757A5911b1F6643`,
             active: false
         },
         {

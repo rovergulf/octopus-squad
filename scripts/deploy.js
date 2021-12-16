@@ -3,6 +3,12 @@ const {
 } = process.env;
 
 async function main() {
+    const [deployer] = await ethers.getSigners();
+
+    console.log("Deploying contracts with the account:", deployer.address);
+
+    console.log("Account balance:", (await deployer.getBalance()).toString());
+
     const octopuses = await ethers.getContractFactory('OctopusSquad');
 
     const contract = await octopuses.deploy(
