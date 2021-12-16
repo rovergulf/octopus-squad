@@ -7,6 +7,7 @@ require("@nomiclabs/hardhat-etherscan");
 
 const {
     CURRENT_NETWORK,
+    TEST_PRIVATE_KEY,
     PRIVATE_KEY,
     ETHERSCAN_API_KEY,
     POLYGONSCAN_API_KEY,
@@ -16,7 +17,7 @@ const {
     MUMBAI_API_URL
 } = process.env;
 
-const etherscanApiKey = CURRENT_NETWORK === 'polygon' || CURRENT_NETWORK === 'mumbai' ?
+const etherscanApiKey = CURRENT_NETWORK === 'matic' || CURRENT_NETWORK === 'mumbai' ?
     POLYGONSCAN_API_KEY : ETHERSCAN_API_KEY;
 
 module.exports = {
@@ -43,15 +44,15 @@ module.exports = {
         },
         mumbai: {
             url: MUMBAI_API_URL,
-            accounts: [`0x${PRIVATE_KEY}`]
+            accounts: [`0x${TEST_PRIVATE_KEY}`]
         },
         rinkeby: {
             url: RINKEBY_API_URL,
-            accounts: [`0x${PRIVATE_KEY}`]
+            accounts: [`0x${TEST_PRIVATE_KEY}`]
         },
         localhost: {
             url: 'http://localhost:7545',
-            accounts: [`0x${PRIVATE_KEY}`]
+            accounts: [`0x${TEST_PRIVATE_KEY}`]
         }
     },
     etherscan: {

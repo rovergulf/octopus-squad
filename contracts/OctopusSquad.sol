@@ -9,7 +9,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
 /// @custom:security-contact team@rovergulf.net
-contract OctopuSquad is ERC721, ERC721Enumerable, ERC721Burnable, Ownable {
+contract OctopusSquad is ERC721, ERC721Enumerable, ERC721Burnable, Ownable {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIds;
@@ -19,7 +19,9 @@ contract OctopuSquad is ERC721, ERC721Enumerable, ERC721Burnable, Ownable {
     uint256 public _saleStartDate = 1640293200; // 24 Dec 2021 00:00 MSK or 23 Dec 2021 21:00 UTC
 
     address payable treasurer; // withdraw to
-    uint256 public tokenPrice = 40 ether; // 40 matic
+    uint256 public discountTokensCount = 1000;
+    uint256 public discountTokenPrice = 20 ether; // 20 Matic for first 1000 octopuses
+    uint256 public tokenPrice = 40 ether; // 40 Matic
 
     uint256 public maxSupply = 1e4;
     uint256 public maxMintsPerTx = 10; // maximum mints per transaction
@@ -65,7 +67,19 @@ contract OctopuSquad is ERC721, ERC721Enumerable, ERC721Burnable, Ownable {
         }
         require(totalSupply() <= (maxSupply - mintAmount), "Total supply will exceed limit");
         require(to != address(0), "Cannot be minted to zero address");
-        require((amount * tokenPrice) >= msg.value, "Not enough Matic sent");
+        uint256 price = tokenPrice;
+        uint256 currentId = currentTokenId();
+        if (currentId < discountTokensCount) {
+            price = discountTokenPrice;
+        }
+        if (currentId + amount > discountTokensCount) {
+            // if discount limit is exceed, count tx price separately
+            uint256 lowerPrice = (discountTokensCount - currentId) * discountTokenPrice;
+            uint256 normalPrice = (currentId + amount - discountTokensCount) * tokenPrice;
+            require((lowerPrice + normalPrice) >= msg.value, "Not enough Matic sent");
+        } else {
+            require((amount * price) >= msg.value, "Not enough Matic sent");
+        }
 
         for (uint256 i = 0; i < amount; i++) {
             _tokenIds.increment();
