@@ -5,7 +5,7 @@ This repository contains public website and contract source code for [Octopus Sq
 
 ## Contract address
 
-0x0000000000000000000000000000000000000000
+[0xE088f6d45e537B9B4F17f8096757A5911b1F6643](https://polygonscan.com/token/0xe088f6d45e537b9b4f17f8096757a5911b1f6643)
 
 ## More links
 
