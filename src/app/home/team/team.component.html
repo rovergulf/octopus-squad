@@ -1,10 +1,26 @@
 <main>
     <h2>Team</h2>
-    <div class="flex-row layout-space-between-center flex-wrap">
+    <div class="members">
         <div class="member" *ngFor="let member of team">
-            <img src="{{member.avatar}}" alt="{{member.alt}}">
-            <div class="member-name">{{member.name}}</div>
-            <div class="member-position">{{member.position}}</div>
+            <div class="head">
+                <div class="contacts">
+                    <ng-container *ngIf="member.twitter">
+                        <a [href]="member.twitter" target="_blank">Twitter</a>
+                    </ng-container>
+                    <ng-container *ngIf="member.opensea">
+                        <a [href]="member.opensea" target="_blank">OpenSea</a>
+                    </ng-container>
+                    <ng-container *ngIf="member.instagram">
+                        <a [href]="member.instagram" target="_blank">Instagram</a>
+                    </ng-container>
+                    <ng-container *ngIf="member.email">
+                        <a href="mailto:{{member.email}}" target="_blank">Email</a>
+                    </ng-container>
+                </div>
+                <img src="{{member.avatar}}" alt="{{member.alt}}">
+            </div>
+            <h3>{{member.name}}</h3>
+            <h3>{{member.position}}</h3>
         </div>
     </div>
 </main>

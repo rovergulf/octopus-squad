@@ -1,81 +1,137 @@
+@import "./node_modules/ngx-slice-kit/lib/core/styles/flexbox";
 @import "../../../variables";
 
 main {
+    @extend .flex-column;
+    @extend .layout-start-stretch;
+
     h2 {
         text-align: center;
     }
 
+    .members {
+        @extend .flex-row;
+        @extend .layout-start-start;
+        @extend .flex-wrap;
+    }
+
     .member {
-        width: 274px;
+        @extend .flex-column;
+        @extend .layout-start-stretch;
+        @extend .flex-grow-1;
+        margin: 8px;
+
+        .head {
+            @extend .flex-column;
+            @extend .layout-start-stretch;
+            overflow: hidden;
+            border-radius: 32px;
+            margin-bottom: 24px;
+
+            .contacts {
+                font-size: 24px;
+                line-height: 32px;
+                z-index: 5;
+                @extend .flex-column;
+                @extend .layout-center-stretch;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(33, 33, 33, 0.45);
+                padding: 16px;
+                opacity: 0;
+                transition: opacity .25s ease;
+
+                a {
+                    text-align: center;
+                    color: #fff;
+                    transition: opacity .25s ease;
+
+                    &:hover {
+                        opacity: .75;
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: 8px;
+                    }
+                }
+            }
+
+            &:hover .contacts {
+                opacity: 1;
+            }
+        }
 
         img {
+            position: relative;
+            z-index: 1;
             width: 100%;
-            margin-bottom: 24px;
         }
 
-        &-name, &-position {
+        h3 {
             font-size: 32px;
-            line-height: 145%;
+            line-height: 48px;
             color: #fff;
-        }
+            font-weight: normal;
 
-        &-position {
-            opacity: 0.7;
+            &:last-child {
+                opacity: 0.7;
+            }
         }
     }
-}
 
-@media screen and (max-width: 1440px) {
-    main {
+
+    @media screen and (max-width: 1440px) {
         padding: 0 32px;
 
         .member {
             width: 22%
         }
     }
-}
 
-@media screen and (max-width: 1024px) {
-    main {
+    @media screen and (max-width: 1024px) {
         .member {
-            width: 40%;
-
-            &:not(.member:last-of-type)  {
-                margin-right: 0;
+            .head .contacts {
+                font-size: 20px;
             }
 
-            &:not(.member:nth-of-type(3), .member:nth-of-type(4))  {
-                margin-bottom: 48px;
+            h3 {
+                font-size: 20px;
+                line-height: 32px;
+            }
+        }
+
+    }
+
+    @media screen and (max-width: 800px) {
+
+        .member {
+
+            .head .contacts {
+                font-size: 16px;
+                line-height: 24px;
+            }
+
+            h3 {
+                font-size: 16px;
+                line-height: 24px;
             }
         }
     }
-}
 
-@media screen and (max-width: 800px) {
-    main {
-        .member-name {
-            font-size: 28px;
-        }
-    }
-}
-
-@media screen and (max-width: 640px) {
-    main {
+    @media screen and (max-width: 640px) {
         .member {
             width: 100%;
-
-            &:nth-of-type(3) {
-                margin-bottom: 40px;
-            }
         }
     }
-}
 
-@media screen and (max-width: 440px) {
-    main {
+    @media screen and (max-width: 440px) {
         h2 {
             font-size: 60px;
         }
     }
-}
 
+
+}
