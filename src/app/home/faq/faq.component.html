@@ -2,13 +2,10 @@
     <h2>FAQ</h2>
     <ul>
         <li class="faq-block" *ngFor="let item of faq; let id = index" id="{{id}}" [class.active]="item.active">
-            <div class="question flex-row layout-space-between-start" (click)="toggle(id)">
-                <div>
-                    <p>{{item.question}}</p>
-                </div>
-                <div class="icon-wrapper">
-                    <img class="open-icon" src="../../../assets/images/cross.svg" alt="Open icon">
-                </div>
+            <div class="question" (click)="toggle(id)">
+                <p>{{item.question}}</p>
+                <span class="spacer"></span>
+                <img class="open-icon" src="/assets/images/cross.svg" alt="Open icon">
             </div>
             <div class="answer">{{item.answer}}</div>
         </li>

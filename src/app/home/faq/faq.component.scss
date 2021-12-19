@@ -1,12 +1,12 @@
+@import "./node_modules/ngx-slice-kit/lib/core/styles/flexbox";
 @import "../../../variables";
 
 main {
+    @extend .flex-column;
+    @extend .layout-start-stretch;
+
     h2 {
         text-align: center;
-    }
-
-    .faq-block:not(.faq-block:last-of-type) {
-        margin-bottom: 32px;
     }
 
     .faq-block {
@@ -32,9 +32,17 @@ main {
                 max-height: 400px;
             }
         }
+
+        &:not(:last-of-type) {
+            margin-bottom: 32px;
+        }
     }
 
     .question {
+        @extend .flex-row;
+        @extend .layout-space-between-stretch;
+        flex-wrap: nowrap;
+
         margin-bottom: 4px;
         cursor: pointer;
 
