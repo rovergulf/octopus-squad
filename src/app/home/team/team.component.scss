@@ -20,6 +20,7 @@ main {
         @extend .layout-start-stretch;
         @extend .flex-grow-1;
         margin: 8px;
+        max-width: 25%;
 
         .head {
             @extend .flex-column;
@@ -84,11 +85,7 @@ main {
 
 
     @media screen and (max-width: 1440px) {
-        padding: 0 32px;
-
-        .member {
-            width: 22%
-        }
+        //padding: 0 32px;
     }
 
     @media screen and (max-width: 1024px) {
@@ -106,9 +103,9 @@ main {
     }
 
     @media screen and (max-width: 800px) {
-
         .member {
-
+            min-width: 40%;
+            max-width: none;
             .head .contacts {
                 font-size: 16px;
                 line-height: 24px;
@@ -122,9 +119,9 @@ main {
     }
 
     @media screen and (max-width: 640px) {
-        .member {
-            width: 100%;
-        }
+        //.member {
+        //    width: 100%;
+        //}
     }
 
     @media screen and (max-width: 440px) {
