@@ -15,8 +15,8 @@ https://octopussquad.com
 ### Discord server
 https://discord.gg/8D9SB5UnzQ
 
-### Marketplaces
-- TBD
+### OpenSea
+https://opensea.io/collection/octopus-squad
 
 ### Engineering team:  
 https://rovergulf.net
