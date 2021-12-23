@@ -1,45 +1,16 @@
 <main class="flex-column">
     <h2>Road Map</h2>
 
-    <div class="step">
-        <ul>
-            <li>We are improving Discord and social media management</li>
-            <li>Drawing 10 OS among the community</li>
-        </ul>
-    </div>
+    <ng-container *ngFor="let stage of roadmap; let i = index">
+        <div class="step">
+            <div class="container container--{{i}}">
+                <ul>
+                    <ng-container *ngFor="let t of stage.points"></ng-container>
+                    <li>We are improving Discord and social media management</li>
+                    <li>Drawing 10 OS among the community</li>
+                </ul>
+            </div>
+        </div>
+    </ng-container>
 
-    <div class="step">
-        <ul>
-            <li>3 ETH goes to the community wallet</li>
-            <li>Choosing a fund for donation by voting in discord</li>
-            <li>Drawing 20 OS for nft holders and subscribers</li>
-        </ul>
-    </div>
-
-    <div class="step">
-        <ul>
-            <li>5 ETH goes to the community wallet</li>
-            <li>Voting for the fund for donations</li>
-            <li>Distribution 20 OS + 1ETH for nft holders and subscribers</li>
-        </ul>
-    </div>
-
-    <div class="step">
-        <ul>
-            <li>8 ETH goes to the community wallet</li>
-            <li>Voting for the fund for donations</li>
-            <li>Development of exclusive OS merch</li>
-            <li>Exclusive Rare NFT giveaways</li>
-        </ul>
-    </div>
-
-    <div class="step">
-        <ul>
-            <li>10 ETH goes to the community wallet</li>
-            <li>Voting for the fund for donations</li>
-            <li>Drawing 3 ETH for Rare NFT holders</li>
-            <li>Development of a new project.</li>
-            <li>Hooray we made this world cleaner!</li>
-        </ul>
-    </div>
 </main>
