@@ -32,6 +32,7 @@ main {
     }
 
     .mint {
+        font-family: 'Rubik', sans-serif;
         text-align: center;
         cursor: pointer;
         width: 344px;
@@ -42,6 +43,7 @@ main {
         line-height: 80px;
         color: #1F3245;
         transition: opacity .25s ease;
+        font-weight: bold;
 
         &:hover {
             opacity: 0.75;

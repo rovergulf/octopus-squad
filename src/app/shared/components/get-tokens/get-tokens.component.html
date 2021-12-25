@@ -4,10 +4,14 @@
         <span class="spacer"></span>
         <sdk-icon icon="close" [size]="40" (click)="close()"></sdk-icon>
     </header>
-    <section *ngIf="!contract">
+    <section *ngIf="!contract && !currentTokenId">
         <p>Loading contract interfaces...</p>
     </section>
-    <section *ngIf="contract">
+    <section *ngIf="contract && currentTokenId">
+        <div class="how-much">
+            <p>Minted {{currentTokenId}} of 10000</p>
+        </div>
+        <span class="spacer"></span>
         <div class="recipient">
             <h3>Recipient:</h3>
             <p>{{web3.currentAccount}}</p>

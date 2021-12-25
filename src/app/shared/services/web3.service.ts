@@ -63,4 +63,18 @@ export class Web3Service {
         });
     }
 
+    public getBalance(address: string): Observable<any> {
+        return new Observable<any>(subscriber => {
+            this.eth.request({
+                method: 'eth_getBalance',
+                params: [address],
+            }).then((res: any) => {
+                subscriber.next(res);
+                subscriber.complete();
+            }).catch((err: any) => {
+                subscriber.error(err);
+            });
+        });
+    }
+
 }

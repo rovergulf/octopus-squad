@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
                 this.web3.getAccounts().subscribe({
                     next: (res: any) => {
                         this.alerts.success({
-                            message: `You are logged to Octopus Squad!`,
+                            message: `You are authorized to Octopus Squad!`,
                             positionX: 'center',
                             positionY: 'bottom',
                         });

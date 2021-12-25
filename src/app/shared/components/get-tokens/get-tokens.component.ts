@@ -82,16 +82,32 @@ export class GetTokensComponent implements OnInit, OnDestroy {
 
         this.loading = true;
 
-        // this amount is added due not enough ether sent error, seems it not
-        // const ethValue = this.ethValue + 0.00000000000000001;
-        const value = ethers.utils.parseEther(this.ethValue.toString());
-        this.contractCall(this.web3.currentAccount, this.amount, {value}).then((tx: any) => {
-            this.alerts.success({message: `Tx '${tx.hash}' sent!`});
-            this.tx = tx;
-            this.loading = false;
-        }).catch((err: any) => {
-            this.alerts.error({message: err.message.substring(0, err.message.indexOf('(')) || err.message});
-            this.loading = false;
+        this.web3.getBalance(this.web3.currentAccount).subscribe({
+            next: (res: any) => {
+                const hexBalance = ethers.BigNumber.from(res);
+                const balance = ethers.utils.formatEther(hexBalance.toString());
+
+                const ethValue = ethers.utils.formatEther(this.ethValue.toString());
+                if (ethValue > balance) {
+                    this.alerts.error({
+                        message: `Insufficient balance.`
+                    });
+                    return;
+                }
+
+                const value = ethers.utils.parseEther(this.ethValue.toString());
+                this.contractCall(this.web3.currentAccount, this.amount, {value}).then((tx: any) => {
+                    this.alerts.success({message: `Tx '${tx.hash}' sent!`});
+                    this.tx = tx;
+                    this.loading = false;
+                }).catch((err: any) => {
+                    this.alerts.error({message: err.message.substring(0, err.message.indexOf('(')) || err.message});
+                    this.loading = false;
+                });
+            },
+            error: (err: any) => {
+                this.alerts.error({message: err})
+            }
         });
     }
 
@@ -116,7 +132,9 @@ export class GetTokensComponent implements OnInit, OnDestroy {
     }
 
     priceCaption(): string {
-        return `Each token costs ${this.web3.network === '0x4' ? '0.02 Ether' : '40 Matic'} per mint`;
+        return `Each token costs ${this.web3.network === '0x4' ? '0.02 Ether' : `${
+            this.currentTokenId >= 1000 ? '40' : '20'
+        } Matic`} per mint`;
     }
 
     increase(): void {

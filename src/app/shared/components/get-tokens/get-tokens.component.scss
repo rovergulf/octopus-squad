@@ -87,11 +87,21 @@ main {
         }
 
         .mint-button {
+            cursor: pointer;
+            @extend .flex-column;
+            @extend .layout-center-center;
+            font-family: 'Rubik', sans-serif;
             border-radius: 32px;
             font-size: 40px;
             line-height: 64px;
             height: 64px;
             width: 100%;
+            text-align: center;
+            transition: opacity .25s ease;
+
+            &:hover {
+                opacity: .75;
+            }
         }
     }
 
