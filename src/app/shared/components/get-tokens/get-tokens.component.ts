@@ -84,18 +84,16 @@ export class GetTokensComponent implements OnInit, OnDestroy {
 
         this.web3.getBalance(this.web3.currentAccount).subscribe({
             next: (res: any) => {
-                const hexBalance = ethers.BigNumber.from(res);
-                const balance = ethers.utils.formatEther(hexBalance.toString());
-
-                const ethValue = ethers.utils.formatEther(this.ethValue.toString());
-                if (ethValue > balance) {
+                const balance = ethers.BigNumber.from(res);
+                const value = ethers.utils.parseEther(this.ethValue.toString());
+                if (balance.lt(value)) {
                     this.alerts.error({
-                        message: `Insufficient balance.`
+                        title: 'Insufficient balance',
+                        message: `Add more funds.`
                     });
                     return;
                 }
 
-                const value = ethers.utils.parseEther(this.ethValue.toString());
                 this.contractCall(this.web3.currentAccount, this.amount, {value}).then((tx: any) => {
                     this.alerts.success({message: `Tx '${tx.hash}' sent!`});
                     this.tx = tx;
