@@ -3,6 +3,7 @@ import { AlertService, PopupService } from 'ngx-slice-kit';
 import { ethers } from 'ethers';
 import { Web3Service } from '../../services/web3.service';
 import { environment } from '../../../../environments/environment';
+import { GtagService } from '../../services/gtag.service';
 
 const abi = [
     {
@@ -58,6 +59,7 @@ export class GetTokensComponent implements OnInit, OnDestroy {
         public web3: Web3Service,
         private popup: PopupService,
         private alerts: AlertService,
+        private gtag: GtagService,
     ) {
     }
 
@@ -91,6 +93,7 @@ export class GetTokensComponent implements OnInit, OnDestroy {
                         title: 'Insufficient balance',
                         message: `Add more funds.`
                     });
+                    this.gtag.trackEvent('mint', 'insufficient_funds');
                     return;
                 }
 
@@ -98,9 +101,11 @@ export class GetTokensComponent implements OnInit, OnDestroy {
                     this.alerts.success({message: `Tx '${tx.hash}' sent!`});
                     this.tx = tx;
                     this.loading = false;
+                    this.gtag.trackEvent('mint', 'tx_success');
                 }).catch((err: any) => {
                     this.alerts.error({message: err.message.substring(0, err.message.indexOf('(')) || err.message});
                     this.loading = false;
+                    this.gtag.trackEvent('mint', 'tx_error');
                 });
             },
             error: (err: any) => {

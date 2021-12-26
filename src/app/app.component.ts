@@ -2,6 +2,7 @@ import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { AlertService } from 'ngx-slice-kit';
 import { Web3Service } from './shared/services/web3.service';
+import { GtagService } from './shared/services/gtag.service';
 
 @Component({
     selector: 'app-root',
@@ -12,7 +13,8 @@ export class AppComponent implements OnInit {
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
         public web3: Web3Service,
-        private alerts: AlertService
+        private alerts: AlertService,
+        private gtag: GtagService,
     ) {
     }
 
@@ -36,6 +38,8 @@ export class AppComponent implements OnInit {
                     }
                 });
             }
+
+            this.gtag.initGTag();
         }
     }
 
