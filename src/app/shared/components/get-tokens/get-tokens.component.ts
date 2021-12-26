@@ -93,7 +93,7 @@ export class GetTokensComponent implements OnInit, OnDestroy {
                         title: 'Insufficient balance',
                         message: `Add more funds.`
                     });
-                    this.gtag.trackEvent('mint', 'insufficient_funds');
+                    this.gtag.trackEvent('mint_insufficient_funds');
                     return;
                 }
 
@@ -101,11 +101,11 @@ export class GetTokensComponent implements OnInit, OnDestroy {
                     this.alerts.success({message: `Tx '${tx.hash}' sent!`});
                     this.tx = tx;
                     this.loading = false;
-                    this.gtag.trackEvent('mint', 'tx_success');
+                    this.gtag.trackEvent('mint_tx_success');
                 }).catch((err: any) => {
                     this.alerts.error({message: err.message.substring(0, err.message.indexOf('(')) || err.message});
                     this.loading = false;
-                    this.gtag.trackEvent('mint', 'tx_error');
+                    this.gtag.trackEvent('mint_tx_error');
                 });
             },
             error: (err: any) => {

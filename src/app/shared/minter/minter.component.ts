@@ -31,7 +31,7 @@ export class MinterComponent implements OnInit {
                     message: `Install MetaMask browser extension at first`,
                     positionX: 'center',
                 });
-                this.gtag.trackEvent('mint', 'no_web3_provider');
+                this.gtag.trackEvent('no_web3_provider');
             } else {
                 const isRinkeby = this.web3.network === '0x4';
                 const isPolygon = this.web3.network === '0x89';
@@ -41,13 +41,13 @@ export class MinterComponent implements OnInit {
                             // ...
                         }
                     });
-                    this.gtag.trackEvent('mint', 'open_dialog');
+                    this.gtag.trackEvent('mint_open');
                 } else {
                     this.alerts.error({
                         title: `Wrong network`,
                         message: `Select Polygon network in your MetaMask wallet`
                     });
-                    this.gtag.trackEvent('mint', 'wrong_network');
+                    this.gtag.trackEvent('mint_wrong_network');
                 }
             }
         }

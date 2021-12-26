@@ -28,7 +28,7 @@ export class GtagService {
         }
     }
 
-    public trackEvent(action: string, value: string): void {
+    public trackEvent(action: string, value: number = 1): void {
         this.gtag('event', action, {value});
     }
 
