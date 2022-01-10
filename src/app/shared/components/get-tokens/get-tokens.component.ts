@@ -1,9 +1,8 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { AlertService, PopupService } from 'ngx-slice-kit';
 import { ethers } from 'ethers';
-import { Web3Service } from '../../services/web3.service';
 import { environment } from '../../../../environments/environment';
-import { GtagService } from '../../services/gtag.service';
+import { GtagService, WalletConnectService, Web3Service } from '../../services';
 
 const abi = [
     {
@@ -50,6 +49,9 @@ export class GetTokensComponent implements OnInit, OnDestroy {
 
     loading: boolean = false;
     tx: any;
+    isWeb3Provider: boolean;
+    buyer: string;
+    signer: ethers.Signer;
     amount: number = 1;
     ethValue: number = 0;
     contract: any;
@@ -57,6 +59,7 @@ export class GetTokensComponent implements OnInit, OnDestroy {
 
     constructor(
         public web3: Web3Service,
+        public wc: WalletConnectService,
         private popup: PopupService,
         private alerts: AlertService,
         private gtag: GtagService,
@@ -84,7 +87,7 @@ export class GetTokensComponent implements OnInit, OnDestroy {
 
         this.loading = true;
 
-        this.web3.getBalance(this.web3.currentAccount).subscribe({
+        this.web3.getBalance().subscribe({
             next: (res: any) => {
                 const balance = ethers.BigNumber.from(res);
                 const value = ethers.utils.parseEther(this.ethValue.toString());
@@ -166,11 +169,27 @@ export class GetTokensComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        const addresses: any = environment.contracts;
-        this.contract = new ethers.Contract(addresses[this.web3.network], abi, this.web3.signer);
-        this.contract.currentTokenId().then((res: any) => {
-            this.currentTokenId = ethers.BigNumber.from(res).toNumber();
-            this.ethValue = this.countPrice();
+        this.isWeb3Provider = !!this.web3.eth && !!this.web3.currentAccount;
+        this.buyer = this.isWeb3Provider ? this.web3.currentAccount : this.wc.currentAccount;
+        this.signer = this.isWeb3Provider ? this.web3.signer : this.wc.signer;
+        this.contract = new ethers.Contract(environment.contract, abi, this.signer);
+        this.signer.getChainId().then((n: any) => {
+            if (n != 137) {
+                this.alerts.error({
+                    title: 'Invalid network',
+                    message: 'Select Polygon as your current network'
+                });
+                this.gtag.trackEvent('mint_wrong_network');
+            } else {
+                this.ethValue = this.countPrice();
+                this.contract.currentTokenId().then((res: any) => {
+                    this.currentTokenId = ethers.BigNumber.from(res).toNumber();
+                }).catch((err: any) => {
+                    this.alerts.error({
+                        message: err.message || err
+                    });
+                });
+            }
         }).catch((err: any) => {
             this.alerts.error({
                 message: err.message || err

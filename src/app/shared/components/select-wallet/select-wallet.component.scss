@@ -1,0 +1,56 @@
+@import "./node_modules/ngx-slice-kit/lib/core/styles/flexbox";
+
+main {
+    @extend .flex-column;
+    @extend .layout-start-stretch;
+    background: #fff;
+    border-radius: 40px;
+    min-width: 320px;
+    width: 100%;
+    overflow: hidden;
+
+    header {
+        padding: 20px;
+
+        h3 {
+            font-size: 32px;
+        }
+    }
+
+    section {
+        @extend .flex-column;
+        @extend .layout-start-stretch;
+        padding: 20px 20px 40px 20px;
+    }
+
+    button {
+        text-align: center;
+        width: 100%;
+        height: 48px;
+        font-size: 28px;
+        line-height: 48px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: opacity .25s ease;
+
+        &:hover {
+            opacity: .75;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 580px;
+    }
+
+    @media screen and (max-width: 960px) {
+        border-radius: 16px;
+
+        header {
+            padding: 16px;
+        }
+
+        section {
+            padding: 16px 16px 16px 32px;
+        }
+    }
+}

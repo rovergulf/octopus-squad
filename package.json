@@ -1,6 +1,6 @@
 {
   "name": "octopus-squad",
-  "version": "0.5.5",
+  "version": "0.6.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -49,10 +49,16 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "5.3.0",
     "@typescript-eslint/parser": "5.3.0",
+    "@walletconnect/client": "^1.7.0",
+    "@walletconnect/qrcode-modal": "^1.7.0",
+    "@walletconnect/web3-provider": "^1.7.0",
+    "assert": "^2.0.0",
+    "crypto-browserify": "^3.12.0",
     "dotenv": "^10.0.0",
     "eslint": "^8.2.0",
     "ethers": "^5.5.2",
     "hardhat": "^2.7.0",
+    "https-browserify": "^1.0.0",
     "jasmine-core": "~3.10.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
@@ -60,7 +66,10 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "ngx-slice-kit": "^0.12.0",
+    "os-browserify": "^0.3.0",
     "prom-client": "^14.0.1",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
     "typescript": "~4.4.3"
   }
 }

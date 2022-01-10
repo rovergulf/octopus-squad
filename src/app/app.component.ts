@@ -1,8 +1,7 @@
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { AlertService } from 'ngx-slice-kit';
-import { Web3Service } from './shared/services/web3.service';
-import { GtagService } from './shared/services/gtag.service';
+import { Web3Service, GtagService, WalletConnectService } from './shared/services';
 
 @Component({
     selector: 'app-root',
@@ -12,7 +11,8 @@ import { GtagService } from './shared/services/gtag.service';
 export class AppComponent implements OnInit {
     constructor(
         @Inject(PLATFORM_ID) private platformId: any,
-        public web3: Web3Service,
+        private web3: Web3Service,
+        private wc: WalletConnectService,
         private alerts: AlertService,
         private gtag: GtagService,
     ) {
@@ -20,25 +20,8 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         if (isPlatformBrowser(this.platformId)) {
-            if (this.web3.eth) {
-                this.web3.getAccounts().subscribe({
-                    next: (res: any) => {
-                        this.alerts.success({
-                            message: `You are authorized to Octopus Squad!`,
-                            positionX: 'center',
-                            positionY: 'bottom',
-                        });
-                    },
-                    error: (err: any) => {
-                        this.alerts.error({
-                            message: 'Failed to authorize using Web3',
-                            positionX: 'center',
-                            positionY: 'bottom',
-                        });
-                    }
-                });
-            }
-
+            this.web3.checkAndInstallWeb3();
+            this.wc.installWalletConnect();
             this.gtag.initGTag();
         }
     }

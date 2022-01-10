@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { ethers } from 'ethers';
 
 @Injectable({
@@ -7,50 +7,54 @@ import { ethers } from 'ethers';
 })
 export class Web3Service {
 
-    constructor() {
-    }
+    private $eth: BehaviorSubject<any> = new BehaviorSubject<any>(undefined)
 
     get eth(): any {
-        return window.ethereum;
+        return this.$eth.getValue();
+    }
+
+    set eth(ethereum: any) {
+        this.$eth.next(ethereum);
     }
 
     public get currentAccount(): string {
-        return this.eth?.selectedAddress;
+        return this.eth.selectedAddress;
+    }
+
+    constructor() {
     }
 
     public get network(): string {
         return this.eth.chainId;
     }
 
-    get provider(): any {
+    public get provider(): ethers.providers.Web3Provider {
         return this.newProvider(this.eth);
     }
 
-    get signer(): any {
-        return this.provider.getSigner(this.currentAccount);
+    public get signer(): ethers.Signer {
+        return this.provider.getSigner();
     }
 
-    public newProvider(provider: any = this.eth): any {
+    private newProvider(provider: any = this.eth): ethers.providers.Web3Provider {
         return new ethers.providers.Web3Provider(provider);
     }
 
     public checkAndInstallWeb3 = () => {
-        // Checking if Web3 has been injected by the browser (Mist/MetaMask)
-        if (typeof this.eth !== 'undefined') {
-            // Use Mist/MetaMask's provider
+        // Checking if Web3 has been injected by the browser (MetaMask)
+        if (typeof window.ethereum !== 'undefined') {
+            this.eth = window.ethereum;
+            console.info('Successfully installed Web3 provider');
         } else {
             console.warn('No supported web3 provider detected.');
-            // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-            // this.eth = new Web3(
-            //     new Web3.providers.HttpProvider('http://localhost:8545');
-            // );
         }
     };
 
-    public getAccounts(): Observable<any> {
+    public getAccounts(chainId: string = '0x89'): Observable<any> {
         return new Observable<any>(subscriber => {
             this.eth.request({
                 method: 'eth_requestAccounts',
+                chainId,
                 params: {
                     message: 'It requires nothing, but your acceptance'
                 }
@@ -63,12 +67,9 @@ export class Web3Service {
         });
     }
 
-    public getBalance(address: string): Observable<any> {
+    public getBalance(): Observable<any> {
         return new Observable<any>(subscriber => {
-            this.eth.request({
-                method: 'eth_getBalance',
-                params: [address],
-            }).then((res: any) => {
+            this.signer.getBalance().then((res: any) => {
                 subscriber.next(res);
                 subscriber.complete();
             }).catch((err: any) => {

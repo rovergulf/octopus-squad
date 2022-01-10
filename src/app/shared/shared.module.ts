@@ -8,12 +8,14 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MinterComponent } from './minter/minter.component';
 import { GetTokensComponent } from './components/get-tokens/get-tokens.component';
+import { SelectWalletComponent } from './components/select-wallet/select-wallet.component';
 
 const moduleDeclarations = [
     HeaderComponent,
     FooterComponent,
     MinterComponent,
-    GetTokensComponent
+    GetTokensComponent,
+    SelectWalletComponent,
 ];
 
 @NgModule({
