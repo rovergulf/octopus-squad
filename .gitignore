@@ -55,5 +55,5 @@ Thumbs.db
 # hardhat output
 ./artifacts/
 ./cache/
-
+./package-lock.json
 
