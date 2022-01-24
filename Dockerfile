@@ -10,7 +10,7 @@ RUN ng version
 WORKDIR /build
 ADD . /build
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 RUN npm run build:ssr
 # RUN npm run generate:prerender
 #RUN npm run test:ssr
