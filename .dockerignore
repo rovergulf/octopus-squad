@@ -3,4 +3,4 @@
 ./cache
 ./artifacts
 ./.angular
-./package-lock.json
+package-lock.json

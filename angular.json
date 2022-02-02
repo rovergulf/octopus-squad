@@ -45,7 +45,10 @@
             "ngswConfigPath": "ngsw-config.json",
             "allowedCommonJsDependencies": [
               "hash.js",
-              "query-string"
+              "query-string",,
+              "@walletconnect/web3-provider",
+              "@walletconnect/qrcode-modal",
+              "@walletconnect/encoding"
             ]
           },
           "configurations": {
