@@ -9,15 +9,6 @@ export class TeamComponent implements OnInit {
 
     public team = [
         {
-            name: 'Xoma',
-            position: 'Social Media',
-            avatar: '/assets/images/OctoKolya.png',
-            alt: 'Xoma image',
-            twitter: 'https://twitter.com/XomaBig',
-            opensea: 'https://opensea.io/xo_ma',
-            email: '',
-        },
-        {
             name: 'CaptainDisorder',
             position: 'Dev',
             avatar: '/assets/images/OctoDima.png',
